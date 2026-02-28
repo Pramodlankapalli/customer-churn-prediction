@@ -2,52 +2,56 @@
 
 ## Project Overview
 
-This project focuses on predicting customer churn using a telecom dataset. 
-The main objective is to identify customers who are likely to leave the company so that appropriate retention strategies can be applied.
+This project focuses on predicting customer churn using a telecom dataset.  
+The objective is to identify customers who are likely to leave the company so that proactive retention strategies can be applied.
 
-Customer churn prediction is important because acquiring a new customer is more expensive than retaining an existing one.
+Customer churn prediction is important because retaining existing customers is more cost-effective than acquiring new ones.
 
 ---
 
 ## Dataset
 
 - Source: Kaggle (Telco Customer Churn Dataset)
-- Total records: 7000+ customers
-- Target variable: `Churn` (Yes / No)
+- Total Records: 7000+ customers
+- Target Variable: `Churn` (Yes / No)
 
-The dataset includes customer demographics, services subscribed, contract type, tenure, payment method, and billing details.
+The dataset contains customer demographic details, subscribed services, contract type, tenure, billing information, and payment methods.
 
 ---
 
 ## Project Workflow
 
-### 1. Data Loading and Inspection
-- Loaded the dataset using pandas
+### 1. Data Loading & Understanding
+- Loaded dataset using pandas
 - Checked data types and missing values
-- Understood feature distribution
+- Understood feature distributions
 
-### 2. Data Cleaning
-- Converted categorical columns into numerical format
-- Removed unnecessary columns
-- Verified no null values remained
+### 2. Data Cleaning & Preprocessing
+- Converted categorical features into numerical format
+- Handled data inconsistencies
+- Verified no missing values remained
 
 ### 3. Exploratory Data Analysis (EDA)
-- Analyzed churn distribution
-- Compared churn with contract type and tenure
-- Observed that month-to-month contract customers churn more
-- Found that higher monthly charges increase churn probability
+- Analyzed overall churn distribution
+- Compared churn rate across contract types
+- Observed higher churn in month-to-month contracts
+- Found that customers with higher monthly charges tend to churn more
 
 ### 4. Feature Engineering
 - Encoded categorical variables
 - Split data into training and testing sets
 
-### 5. Model Building
-Built and evaluated multiple models:
+### 5. Model Building & Evaluation
+
+The following models were implemented and compared:
 
 - Logistic Regression (baseline model)
 - Random Forest Classifier
+- XGBoost Classifier
 
-Model performance was compared using accuracy and recall.
+Model performance was evaluated using Accuracy and Recall.
+
+Since identifying churn customers is more important than just achieving high accuracy, recall was given higher importance during evaluation.
 
 ---
 
@@ -57,15 +61,34 @@ Model performance was compared using accuracy and recall.
 - Random Forest Accuracy: ~79%
 - Recall improved to ~0.70 after tuning
 
-Improving recall was important because correctly identifying churn customers is more critical than just achieving high accuracy.
+After comparing all models and considering business impact, **Random Forest was selected as the final model** because it provided a better balance between accuracy and recall.
 
 ---
 
 ## Key Insights
 
-- Customers with month-to-month contracts are more likely to churn
-- Customers with longer tenure are less likely to leave
-- Higher monthly charges slightly increase churn probability
+- Customers with month-to-month contracts are more likely to churn.
+- Longer tenure customers are less likely to leave.
+- Higher monthly charges slightly increase churn probability.
+
+---
+
+## Conclusion
+
+In this project, multiple machine learning models were implemented and compared to predict customer churn. Logistic Regression, Random Forest, and XGBoost were used for performance comparison.
+
+After evaluating model metrics and considering business impact, Random Forest was selected as the final model.
+
+The project demonstrates a complete end-to-end machine learning workflow, including preprocessing, model building, evaluation, and comparison of multiple models.
+
+---
+
+## Future Improvements
+
+- Perform advanced hyperparameter tuning to further improve model performance.
+- Apply imbalance handling techniques such as SMOTE to balance precision and recall.
+- Improve feature engineering to capture more meaningful patterns from data.
+- Deploy the model using Streamlit to make it more user-friendly and practical.
 
 ---
 
@@ -77,15 +100,7 @@ Improving recall was important because correctly identifying churn customers is 
 - Matplotlib
 - Seaborn
 - Scikit-learn
-
----
-
-## Future Improvements
-
-- Hyperparameter tuning using GridSearchCV
-- Trying advanced models like XGBoost
-- Deploying the model using Streamlit
-- Adding business cost-based evaluation
+- XGBoost
 
 ---
 
